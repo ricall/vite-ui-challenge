@@ -1,0 +1,30 @@
+.Search {
+  position: relative;
+  margin: 20px 0;
+}
+
+.Search svg {
+  position: relative;
+  left: 28px;
+  top: 4px;
+}
+
+.SearchLine {
+  position: relative;
+  top: 24px;
+  width: 900px;
+  height: 1px;
+  background-image: linear-gradient(to right, white, rgba(0,0,0, 100), white);
+  content: ' ';
+  z-index: -1;
+}
+
+.SearchInput {
+  width: 500px;
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid #777;
+
+  background: #fff;
+  padding-left: 2rem;
+}

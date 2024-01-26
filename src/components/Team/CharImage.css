@@ -1,0 +1,44 @@
+.CharImageContainer {
+  position: relative;
+  border: 0;
+  margin: unset;
+  background: none;
+}
+
+.CharImage {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+  max-width: 80px;
+  max-height: 80px;
+  object-fit: cover;
+
+  border: 1px solid #217aff;
+  border-radius: 40px;
+}
+
+.HoverLabel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  display: none;
+  color: #fff;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 80px;
+
+  border: 1px solid #217aff;
+  background-color: rgba(33, 122, 255, 0.6);
+  border-radius: 40px;
+}
+
+.CharImageContainer:hover .HoverLabel {
+  display: block;
+}
+
+.CharImage:hover .HoverLabel {
+  display: block;
+}

@@ -1,0 +1,22 @@
+.TotalsContainer {
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+}
+
+.Totals {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+}
+
+.Note {
+  color: #666;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  align-self: flex-start;
+}

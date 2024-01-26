@@ -1,0 +1,23 @@
+.TagBadge {
+  color: #217aff;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+  border-radius: 20px;
+  border: 1px solid #217aff;
+  background: #fff;
+
+  padding: 6px 13px 6px 13px;
+}
+
+.TagBadgeChecked {
+  background: #217aff;
+  color: #fff;
+
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

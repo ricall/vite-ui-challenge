@@ -1,0 +1,50 @@
+.CharacterRow {
+
+}
+
+.Checked {
+  background: #edf5ff;
+}
+
+.CharThumbnailContainer {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+
+  border-radius: 25px;
+  border: 1px solid #217aff;
+  overflow: hidden;
+}
+
+.CharThumbnail {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  object-fit: contain;
+  transform: scale(1.8);
+  transform-origin: 15px 10px;
+  clip-path: inset(
+    calc((1 - 1 / 1.6) * 0) calc((1 - 1 / 1.6) * (100% - 30))
+      calc((1 - 1 / 1.6) * (100% - 0)) calc((1 - 1 / 1.6) * (30))
+  );
+
+  border-radius: 25px;
+  border: 1px solid #217aff;
+  overflow: hidden;
+}
+
+.Name {
+  text-align: left;
+}
+
+.Tags {
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  gap: 10px;
+}
+
+.Ability-Max {
+  color: #f00;
+}

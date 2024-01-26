@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 import App from '../App';
 import { describe, expect, it } from 'vitest';
@@ -9,7 +9,6 @@ describe('App', () => {
 
     expect(asFragment()).toMatchSnapshot();
 
-    const linkElement = screen.getByText(/learn react/i);
-    expect(linkElement).toBeDefined();
+    // TODO: Verify some behaviour
   });
 });

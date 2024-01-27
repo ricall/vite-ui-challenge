@@ -1,15 +1,12 @@
-import { characters } from '../../model';
 import { CharImage } from './CharImage';
 import './Team.css';
+import { useCharacterStore } from '../../store/characters.ts';
 
-type Props = {
-  teamIds: number[];
-  toggleTeamMember: (_id: number) => void;
-};
+export function Team() {
+  const { getTeam, removeTeamMember } = useCharacterStore();
 
-export function Team({ teamIds, toggleTeamMember }: Props) {
-  const team = characters.filter(({ id }) => teamIds.includes(id));
-  const handleOnClick = (id: number) => () => toggleTeamMember(id);
+  const team = getTeam();
+  const handleOnClick = (id: number) => () => removeTeamMember(id);
 
   return (
     <div className="Team">

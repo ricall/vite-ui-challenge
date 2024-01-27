@@ -1,28 +1,18 @@
 import { tagNames } from '../../model';
 import './Filters.css';
 import { TagBadge } from '../TagBadge';
+import { useCharacterStore } from '../../store/characters.ts';
 
-type Props = {
-  tags: string[];
-  setTags: (tags: string[]) => void;
-};
+export function Filters() {
+  const { isTagSelected, toggleTag, setTags } = useCharacterStore();
 
-export function Filters({ tags, setTags }: Props) {
-  const isChecked = (tag: string) => tags.includes(tag);
-  const handleToggleTag = (tag: string) => () => {
-    if (isChecked(tag)) {
-      setTags(tags.filter((current) => current !== tag));
-    } else {
-      setTags([tag, ...tags]);
-    }
-  };
-
+  const handleToggleTag = (tag: string) => () => toggleTag(tag);
   const handleClearAll = () => setTags([]);
 
   return (
     <div className="Filters">
       {tagNames.map((tag) => (
-        <TagBadge key={tag} label={tag} isChecked={isChecked(tag)} onClick={handleToggleTag(tag)} />
+        <TagBadge key={tag} label={tag} isChecked={isTagSelected(tag)} onClick={handleToggleTag(tag)} />
       ))}
       <div className="Clear" onClick={handleClearAll}>
         Clear all

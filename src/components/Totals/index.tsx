@@ -1,15 +1,9 @@
-import { teamFrom } from '../../model';
-import { AbilityName } from '../../types';
+import { AbilityName, Character } from '../../types';
 import { TotalScore } from './TotalScore';
 import './Totals.css';
+import { useCharacterStore } from '../../store/characters.ts';
 
-type Props = {
-  teamIds: number[];
-};
-
-export function Totals({ teamIds }: Props) {
-  const team = teamFrom(teamIds);
-
+const calculateAverages = (team: Character[]): Partial<Record<AbilityName, number>> => {
   const values: Partial<Record<AbilityName, number>> = {};
   team.forEach(({ abilities }) =>
     abilities.forEach(({ abilityName, abilityScore }) => {
@@ -17,16 +11,25 @@ export function Totals({ teamIds }: Props) {
     }),
   );
 
+  return values;
+};
+
+export function Totals() {
+  const { getTeam } = useCharacterStore();
+
+  const team = getTeam();
+  const averages = calculateAverages(team);
+
   return (
     <div className="TotalsContainer">
       <div className="Totals">
-        <TotalScore label="Power" value={values.Power} />
-        <TotalScore label="Mobility" value={values.Mobility} />
+        <TotalScore label="Power" value={averages.Power} />
+        <TotalScore label="Mobility" value={averages.Mobility} />
         <div className="Separator" />
-        <TotalScore label="Technique" value={values.Technique} />
+        <TotalScore label="Technique" value={averages.Technique} />
         <div className="Separator" />
-        <TotalScore label="Survivability" value={values.Survivability} />
-        <TotalScore label="Energy" value={values.Energy} />
+        <TotalScore label="Survivability" value={averages.Survivability} />
+        <TotalScore label="Energy" value={averages.Energy} />
       </div>
       <div className="Note">* Totals as average for squad</div>
     </div>

@@ -1,6 +1,5 @@
 import { Checkbox } from '@mui/material';
 import clsx from 'clsx';
-import { ChangeEvent } from 'react';
 
 import { AbilityName, Character, CharacterAbility } from '../../types';
 import './CharacterRow.css';
@@ -8,7 +7,7 @@ import { TagBadge } from '../TagBadge';
 
 type Props = Character & {
   selected: boolean;
-  onToggleTeamMember?: () => void;
+  onToggleTeamMember: () => void;
 };
 
 function CharThumbnail({ image, name }: Pick<Props, 'image' | 'name'>) {
@@ -31,10 +30,7 @@ function Ability({ abilities, ability }: AbilityProps) {
 }
 
 export function CharacterRow({ selected, onToggleTeamMember, name, image, tags, abilities }: Props) {
-  const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
-    onToggleTeamMember?.();
-  };
+  const handleOnChange = () => onToggleTeamMember();
 
   return (
     <tr className={clsx('CharacterRow', { Checked: selected })}>

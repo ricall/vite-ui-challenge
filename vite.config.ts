@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [svgr(), react()],
   test: {
     environment: 'jsdom',
-    include: ['src/**/__tests__/*.spec.*'],
+    include: ['src/**/*.spec.ts?'],
     exclude: [],
   },
 });

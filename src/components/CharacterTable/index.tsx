@@ -1,14 +1,12 @@
-import { Character } from '../../types';
 import { CharacterRow } from './CharacterRow';
 import './CharacterTable.css';
+import { useCharacterStore } from '../../store/characters.ts';
 
-type Props = {
-  characters: Character[];
-  isSelected: (id: number) => boolean;
-  toggleTeamMember: (id: number) => void;
-};
+export function CharacterTable() {
+  const { getFilteredCharacters, isOnTeam, toggleTeamMember } = useCharacterStore();
 
-export function CharacterTable({ characters, isSelected, toggleTeamMember }: Props) {
+  const characters = getFilteredCharacters();
+
   const handleSelect = (id: number) => () => toggleTeamMember(id);
 
   return (
@@ -28,13 +26,7 @@ export function CharacterTable({ characters, isSelected, toggleTeamMember }: Pro
       </thead>
       <tbody>
         {characters.map(({ id, ...character }) => (
-          <CharacterRow
-            id={id}
-            key={id}
-            selected={isSelected(id)}
-            onToggleTeamMember={handleSelect(id)}
-            {...character}
-          />
+          <CharacterRow id={id} key={id} selected={isOnTeam(id)} onToggleTeamMember={handleSelect(id)} {...character} />
         ))}
       </tbody>
     </table>

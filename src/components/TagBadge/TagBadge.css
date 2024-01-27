@@ -1,4 +1,5 @@
 .TagBadge {
+  position: relative;
   color: #217aff;
   font-size: 18px;
   font-style: normal;
@@ -13,6 +14,7 @@
 }
 
 .TagBadgeChecked {
+  position: relative;
   background: #217aff;
   color: #fff;
 
@@ -20,4 +22,10 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+
+.TagBadgeChecked svg {
+  position: relative;
+  left: -3px;
+  top: 2px;
 }

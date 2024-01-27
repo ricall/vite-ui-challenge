@@ -29,7 +29,7 @@ function Ability({ abilities, ability }: AbilityProps) {
   return <span className={(value ?? 0) >= 10 ? 'Ability-Max' : ''}>{value ?? '-'}</span>;
 }
 
-export function CharacterRow({ selected, onToggleTeamMember, name, image, tags, abilities }: Props) {
+export function CharacterRow({ selected, onToggleTeamMember, name, thumbnail, image, tags, abilities }: Props) {
   const handleOnChange = () => onToggleTeamMember();
 
   return (
@@ -38,7 +38,7 @@ export function CharacterRow({ selected, onToggleTeamMember, name, image, tags, 
         <Checkbox checked={selected} onChange={handleOnChange} />
       </td>
       <td>
-        <CharThumbnail image={image} name={name} />
+        <CharThumbnail image={thumbnail ?? image} name={name} />
       </td>
       <td className="Name">{name}</td>
       <td className="Tags">{tags?.map(({ tag_name }) => <TagBadge key={tag_name} label={tag_name} />)}</td>

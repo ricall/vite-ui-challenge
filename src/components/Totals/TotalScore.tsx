@@ -11,10 +11,11 @@ const formatNumber = (number?: number) => {
   if (number === undefined) {
     return '-';
   }
-  if (number === Math.round(number)) {
-    return `${number}`;
+  const display = number.toFixed(2);
+  if (display.endsWith('.00')) {
+    return display.substring(0, display.indexOf('.'));
   }
-  return number.toFixed(2);
+  return display;
 };
 
 export function TotalScore({ label, value }: Props) {

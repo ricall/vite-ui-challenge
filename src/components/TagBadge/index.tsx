@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 
 import './TagBadge.css';
+import TickIcon from '../../img/tick.svg?react';
 
 type Props = {
   label: string;
@@ -20,7 +21,7 @@ export function TagBadge({ label, isChecked, onClick }: Props) {
 
   return (
     <button className={clsx('TagBadge', { TagBadgeChecked: isChecked })} onClick={handleOnClick}>
-      {isChecked && '\u2713 '}
+      {isChecked && <TickIcon className="Tick" />}
       {displayLabel}
     </button>
   );
